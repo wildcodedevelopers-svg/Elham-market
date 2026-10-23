@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07101f">
+<title>ELHAM MARKET | ELHAM STUDIOS</title>
+
+<style>
+:root {
+  --bg:#070b14;
+  --panel:#101827;
+  --panel2:#151f31;
+  --blue:#3485ff;
+  --cyan:#48d9ff;
+  --text:#f4f7ff;
+  --muted:#91a0b8;
+  --border:#253249;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+header{
+  position:sticky;top:0;z-index:5;
+  background:#080e1bea;backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border);
+  padding:15px 5%;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.logo{font-size:21px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--cyan)}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+button{
+  border:0;border-radius:9px;padding:11px 14px;
+  color:white;background:var(--panel2);
+}
+button:hover{filter:brightness(1.2)}
+.primary{
+  background:linear-gradient(120deg,#246bff,#17b8e8);
+  font-weight:bold;
+}
+.secondary{border:1px solid var(--border)}
+.danger{background:#702b36}
+main{max-width:1200px;margin:auto;padding:25px 5% 70px}
+.hero{
+  padding:35px 25px;border:1px solid #24466e;
+  border-radius:20px;
+  background:radial-gradient(ellipse at top right,#163e70,transparent 60%),
+  linear-gradient(140deg,#101b30,#090e19);
+}
+.eyebrow{color:var(--cyan);font-weight:bold;font-size:12px;letter-spacing:2px}
+h1{font-size:clamp(30px,6vw,54px);margin:12px 0}
+p{line-height:1.6}
+.muted{color:var(--muted)}
+.searchrow{display:flex;gap:10px;margin:22px 0;flex-wrap:wrap}
+input,select,textarea{
+  width:100%;background:#080f1c;border:1px solid var(--border);
+  border-radius:9px;color:white;padding:13px;outline:none;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--blue)}
+.searchrow input{flex:1;min-width:180px}
+.categories{display:flex;gap:8px;overflow-x:auto;padding:5px 0 17px}
+.categories button{white-space:nowrap}
+.categories button.active{background:var(--blue)}
+.sectionhead{
+  display:flex;justify-content:space-between;
+  align-items:center;gap:12px;flex-wrap:wrap;margin:25px 0 15px;
+}
+.sectionhead h2{margin:0}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.card{
+  min-width:0;overflow:hidden;background:var(--panel);
+  border:1px solid var(--border);border-radius:15px;
+}
+.productimage{
+  height:160px;background:#18253a;display:flex;
+  justify-content:center;align-items:center;overflow:hidden;
+  font-size:52px;
+}
+.productimage img{width:100%;height:100%;object-fit:cover}
+.cardbody{padding:13px}
+.tag{
+  display:inline-block;font-size:11px;color:var(--cyan);
+  background:#142d48;padding:5px 8px;border-radius:6px;
+}
+.price{font-size:21px;font-weight:bold;margin:10px 0}
+.card h3{font-size:16px;margin:10px 0;overflow-wrap:anywhere}
+.cardbody p{font-size:12px}
+.card button{width:100%;margin-top:7px}
+.panel{
+  background:var(--panel);border:1px solid var(--border);
+  padding:20px;border-radius:15px;margin:18px 0;
+}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-size:13px;color:#b6c4d9}
+.hidden{display:none!important}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:var(--panel2);padding:16px;border-radius:10px}
+.stat strong{font-size:24px;display:block;margin-bottom:7px}
+.listing{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;padding:13px 0;border-bottom:1px solid var(--border);
+}
+.listing:last-child{border:0}
+.listing strong{overflow-wrap:anywhere}
+.modal{
+  position:fixed;inset:0;z-index:10;background:#000b;
+  display:flex;justify-content:center;align-items:center;
+  padding:15px;
+}
+.modalbox{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:16px;padding:23px;width:100%;max-width:440px;
+  max-height:90vh;overflow:auto;
+}
+.modalbox h2{margin-top:0}
+.modalbox>*{margin-bottom:12px}
+footer{
+  border-top:1px solid var(--border);padding:25px 5%;
+  text-align:center;color:var(--muted);font-size:12px;
+}
+.notice{font-size:12px;color:#a8b8cf}
+.empty{padding:30px 10px;text-align:center;color:var(--muted)}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){
+  header{padding:13px 4%}
+  main{padding:18px 4% 50px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .productimage{height:125px}
+  .cardbody{padding:10px}
+  .formgrid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .statgrid{grid-template-columns:1fr}
+  .hero{padding:25px 18px}
+  nav button{padding:9px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">ELHAM <span>MARKET</span></div>
+  <nav>
+    <button onclick="showPage('shop')">Shop</button>
+    <button onclick="showPage('seller')">Sell</button>
+    <button onclick="showPage('cart')">Cart (<span id="cartCount">0</span>)</button>
+    <button class="primary" id="accountButton" onclick="openAuth()">Sign in</button>
+  </nav>
+</header>
+
+<main>
+  <section id="shopPage">
+    <div class="hero">
+      <div class="eyebrow">POWERED BY ELHAM STUDIOS</div>
+      <h1>Discover. Create.<br>Trade without limits.</h1>
+      <p class="muted">One marketplace for physical products, handmade creations,
+      digital goods and creative businesses.</p>
+      <button class="primary" onclick="showPage('seller')">Start selling →</button>
+      <button class="secondary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore products</button>
+    </div>
+
+    <div class="searchrow">
+      <input id="search" placeholder="Search products or sellers..." oninput="renderProducts()">
+      <select id="sort" onchange="renderProducts()" style="max-width:175px">
+        <option value="new">Newest first</option>
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+      </select>
+    </div>
+
+    <div class="categories" id="categories"></div>
+
+    <div class="sectionhead" id="products">
+      <h2>Explore the marketplace</h2>
+      <span class="muted" id="productCount"></span>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <section id="sellerPage" class="hidden">
+    <div class="sectionhead">
+      <h2>Seller studio</h2>
+      <button onclick="showPage('shop')">← Back to shop</button>
+    </div>
+
+    <div id="sellerLocked" class="panel">
+      <h3>Start your own store</h3>
+      <p class="muted">Sign in to the demo, then select Seller to create listings.</p>
+      <button class="primary" onclick="openAuth()">Sign in / Register</button>
+    </div>
+
+    <div id="sellerDashboard" class="hidden">
+      <div class="statgrid">
+        <div class="stat"><strong id="statListings">0</strong><span class="muted">Your listings</span></div>
+        <div class="stat"><strong id="statCart">0</strong><span class="muted">Items in all demo carts</span></div>
+        <div class="stat"><strong id="statValue">R0</strong><span class="muted">Listing value, not earnings</span></div>
+      </div>
+
+      <div class="panel">
+        <h3>List a product</h3>
+        <form id="productForm">
+          <div class="formgrid">
+            <div class="field full">
+              <label>Product name</label>
+              <input id="pName" required maxlength="100" placeholder="e.g. Handmade leather wallet">
+            </div>
+            <div class="field">
+              <label>Price (ZAR)</label>
+              <input id="pPrice" type="number" min="0.01" step="0.01" required placeholder="199.99">
+            </div>
+            <div class="field">
+              <label>Product type</label>
+              <select id="pType">
+                <option>Physical product</option>
+                <option>Handmade</option>
+                <option>Digital download</option>
+                <option>Digital service</option>
+                <option>Art & collectibles</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label>Category</label>
+              <select id="pCategory">
+                <option>Technology</option><option>Fashion</option>
+                <option>Home & Living</option><option>Art</option>
+                <option>Digital</option><option>Education</option>
+                <option>Beauty</option><option>Sports</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label>Product image URL (optional)</label>
+              <input id="pImage" type="url" placeholder="https://example.com/image.jpg">
+            </div>
+            <div class="field full">
+              <label>Description</label>
+              <textarea id="pDescription" rows="3" maxlength="1000" required placeholder="Describe what makes your product useful..."></textarea>
+            </div>
+          </div>
+          <p class="notice">Only list products you own or have permission to sell.
+          Digital items must be legally yours to distribute.</p>
+          <button class="primary" type="submit">Publish listing</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h3>Your products</h3>
+        <div id="myListings"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cartPage" class="hidden">
+    <div class="sectionhead"><h2>Your shopping cart</h2></div>
+    <div class="panel">
+      <div id="cartItems"></div>
+      <div class="sectionhead">
+        <strong>Total: <span id="cartTotal">R0.00</span></strong>
+        <button class="primary" onclick="checkout()">Continue to checkout</button>
+      </div>
+      <p class="notice">Demo only. No payment is collected and no real order is created.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  ELHAM MARKET · A marketplace concept by ELHAM STUDIOS
+  <br><br>Demo version · No real payments or verified user accounts
+</footer>
+
+<div id="authModal" class="modal hidden">
+  <div class="modalbox">
+    <button style="float:right" onclick="closeAuth()">✕</button>
+    <h2 id="authTitle">Join ELHAM MARKET</h2>
+    <p class="muted">Create a demo account or sign in on this device.</p>
+    <form id="authForm">
+      <div class="field">
+        <label>Your name</label>
+        <input id="authName" required maxlength="60" placeholder="Your display name">
+      </div>
+      <div class="field">
+        <label>Email address</label>
+        <input id="authEmail" type="email" required maxlength="120" placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label>Password (demo only)</label>
+        <input id="authPassword" type="password" required minlength="4" placeholder="At least 4 characters">
+      </div>
+      <div class="field">
+        <label>I want to...</label>
+        <select id="authRole">
+          <option value="buyer">Buy products</option>
+          <option value="seller">Sell products</option>
+          <option value="both">Buy and sell</option>
+        </select>
+      </div>
+      <button class="primary" style="width:100%" type="submit">Continue</button>
+    </form>
+    <p class="notice">This is NOT secure authentication. Do not use a real password.</p>
+  </div>
+</div>
+
+<script>
+const KEY = "elham_market_demo_v1";
+
+const categories = [
+  "All","Technology","Fashion","Home & Living","Art",
+  "Digital","Education","Beauty","Sports","Other"
+];
+
+const starterProducts = [
+  {id:"demo1",name:"Wireless Headphones",price:599,
+   type:"Physical product",category:"Technology",
+   description:"Enjoy your favourite music with these wireless headphones.",
+   image:"",seller:"ELHAM Demo Store",owner:"demo",created:3},
+  {id:"demo2",name:"Handmade Bracelet",price:120,
+   type:"Handmade",category:"Fashion",
+   description:"A handmade accessory for everyday wear.",
+   image:"",seller:"Craft Corner",owner:"demo",created:2},
+  {id:"demo3",name:"Digital Study Planner",price:49,
+   type:"Digital download",category:"Digital",
+   description:"A digital planner to organise your studies and projects.",
+   image:"",seller:"Study Space",owner:"demo",created:1},
+  {id:"demo4",name:"Original Wall Art",price:350,
+   type:"Art & collectibles",category:"Art",
+   description:"Decorative art for your room or workspace.",
+   image:"",seller:"Creative Studio",owner:"demo",created:0}
+];
+
+let db = loadDB();
+let currentUser = null;
+let activeCategory = "All";
+
+function loadDB(){
+  try{
+    const raw=localStorage.getItem(KEY);
+    if(raw){
+      const data=JSON.parse(raw);
+      if(Array.isArray(data.products)&&Array.isArray(data.users)){
+        if(!Array.isArray(data.carts)) data.carts=[];
+        return data;
+      }
+    }
+  }catch(e){}
+  return {users:[],products:starterProducts,carts:[]};
+}
+
+function saveDB(){
+  try{
+    localStorage.setItem(KEY,JSON.stringify(db));
+  }catch(e){
+    alert("Browser storage is full or unavailable. Try a smaller image URL.");
+  }
+}
+
+function money(n){
+  return "R"+Number(n).toLocaleString("en-ZA",{
+    minimumFractionDigits:2,maximumFractionDigits:2
+  });
+}
+
+function escapeHTML(value){
+  return String(value ?? "").replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+
+function showPage(page){
+  ["shop","seller","cart"].forEach(p=>{
+    document.getElementById(p+"Page").classList.toggle("hidden",p!==page);
+  });
+  if(page==="seller") renderSeller();
+  if(page==="cart") renderCart();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function openAuth(){
+  document.getElementById("authModal").classList.remove("hidden");
+}
+function closeAuth(){
+  document.getElementById("authModal").classList.add("hidden");
+}
+
+document.getElementById("authForm").addEventListener("submit",e=>{
+  e.preventDefault();
+
+  const name=document.getElementById("authName").value.trim();
+  const email=document.getElementById("authEmail").value.trim().toLowerCase();
+  const password=document.getElementById("authPassword").value;
+  const role=document.getElementById("authRole").value;
+
+  let user=db.users.find(u=>u.email===email);
+
+  if(user){
+    if(user.password!==password){
+      alert("Incorrect demo password.");
+      return;
+    }
+    user.name=name;
+    user.role=role;
+  }else{
+    user={
+      id:"u"+Date.now(),
+      name,email,password,role
+    };
+    db.users.push(user);
+  }
+
+  currentUser=user;
+  saveDB();
+  closeAuth();
+  updateAccount();
+  renderProducts();
+  renderSeller();
+
+  if(role==="seller"||role==="both") showPage("seller");
+  else showPage("shop");
+});
+
+function updateAccount(){
+  const btn=document.getElementById("accountButton");
+  if(currentUser){
+    btn.textContent=currentUser.name+" · Sign out";
+    btn.onclick=()=>{
+      currentUser=null;
+      updateAccount();
+      showPage("shop");
+    };
+  }else{
+    btn.textContent="Sign in";
+    btn.onclick=openAuth;
+  }
+}
+
+function renderCategories(){
+  document.getElementById("categories").innerHTML=categories.map(c=>
+    `<button class="${activeCategory===c?'active':''}"
+    onclick="setCategory('${c}')">${c}</button>`
+  ).join("");
+}
+function setCategory(c){
+  activeCategory=c;
+  renderCategories();
+  renderProducts();
+}
+
+function renderProducts(){
+  const q=document.getElementById("search").value.toLowerCase().trim();
+  let list=db.products.filter(p=>{
+    const matchesCategory=activeCategory==="All"||p.category===activeCategory;
+    const matchesQuery=(p.name+" "+p.description+" "+p.category+" "+p.seller)
+      .toLowerCase().includes(q);
+    return matchesCategory&&matchesQuery;
+  });
+
+  const sort=document.getElementById("sort").value;
+  if(sort==="low") list.sort((a,b)=>a.price-b.price);
+  else if(sort==="high") list.sort((a,b)=>b.price-a.price);
+  else list.sort((a,b)=>b.created-a.created);
+
+  document.getElementById("productCount").textContent=list.length+" products";
+
+  document.getElementById("productGrid").innerHTML=list.length?list.map(p=>{
+    const visual=p.image
+      ?`<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}" loading="lazy" onerror="this.style.display='none'">`
+      :"<span>🛍️</span>";
+
+    return `<article class="card">
+      <div class="productimage">${visual}</div>
+      <div class="cardbody">
+        <span class="tag">${escapeHTML(p.type)}</span>
+        <h3>${escapeHTML(p.name)}</h3>
+        <div class="price">${money(p.price)}</div>
+        <p class="muted">${escapeHTML(p.category)} · ${escapeHTML(p.seller)}</p>
+        <p>${escapeHTML(p.description)}</p>
+        <button class="primary" onclick="addToCart('${p.id}')">Add to cart</button>
+      </div>
+    </article>`;
+  }).join(""):'<div class="empty">No products found. Try another search.</div>';
+
+  updateCartCount();
+}
+
+function addToCart(id){
+  const product=db.products.find(p=>p.id===id);
+  if(!product)return;
+  if(currentUser&&product.owner===currentUser.id){
+    alert("You cannot buy your own listing.");
+    return;
+  }
+  const item=db.carts.find(c=>c.productId===id);
+  if(item)item.quantity++;
+  else db.carts.push({productId:id,quantity:1});
+  saveDB();
+  updateCartCount();
+  alert("Added to your demo cart!");
+}
+
+function updateCartCount(){
+  document.getElementById("cartCount").textContent=
+    db.carts.reduce((sum,c)=>sum+c.quantity,0);
+}
+
+function renderCart(){
+  const items=db.carts.map(c=>{
+    const p=db.products.find(p=>p.id===c.productId);
+    return p?{...p,quantity:c.quantity}:null;
+  }).filter(Boolean);
+
+  document.getElementById("cartItems").innerHTML=items.length?items.map(p=>
+    `<div class="listing">
+      <div><strong>${escapeHTML(p.name)}</strong>
+      <p class="muted">${money(p.price)} × ${p.quantity}</p></div>
+      <div>
+        <button onclick="changeQuantity('${p.id}',-1)">−</button>
+        <button onclick="changeQuantity('${p.id}',1)">+</button>
+        <button class="danger" onclick="removeCartItem('${p.id}')">✕</button>
+      </div>
+    </div>`
+  ).join(""):'<div class="empty">Your cart is empty.</div>';
+
+  document.getElementById("cartTotal").textContent=
+    money(items.reduce((sum,p)=>sum+p.price*p.quantity,0));
+}
+
+function changeQuantity(id,amount){
+  const item=db.carts.find(c=>c.productId===id);
+  if(!item)return;
+  item.quantity+=amount;
+  if(item.quantity<=0)removeCartItem(id);
+  else{saveDB();renderCart();updateCartCount();}
+}
+function removeCartItem(id){
+  db.carts=db.carts.filter(c=>c.productId!==id);
+  saveDB();renderCart();updateCartCount();
+}
+
+function checkout(){
+  if(!currentUser){
+    alert("Sign in to continue in this demo.");
+    openAuth();
+    return;
+  }
+  alert("Demo checkout only. Real payments and orders have not been connected.");
+}
+
+function renderSeller(){
+  const allowed=currentUser&&
+    (currentUser.role==="seller"||currentUser.role==="both");
+
+  document.getElementById("sellerLocked").classList.toggle("hidden",!!allowed);
+  document.getElementById("sellerDashboard").classList.toggle("hidden",!allowed);
+  if(!allowed)return;
+
+  const mine=db.products.filter(p=>p.owner===currentUser.id);
+  document.getElementById("statListings").textContent=mine.length;
+  document.getElementById("statCart").textContent=db.carts.reduce((s,c)=>s+c.quantity,0);
+  document.getElementById("statValue").textContent=money(mine.reduce((s,p)=>s+p.price,0));
+
+  document.getElementById("myListings").innerHTML=mine.length?mine.map(p=>
+    `<div class="listing">
+      <div><strong>${escapeHTML(p.name)}</strong>
+      <p class="muted">${money(p.price)} · ${escapeHTML(p.category)}</p></div>
+      <button class="danger" onclick="deleteListing('${p.id}')">Delete</button>
+    </div>`
+  ).join(""):'<p class="muted">You have not listed any products yet.</p>';
+}
+
+document.getElementById("productForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  if(!currentUser||
+    !["seller","both"].includes(currentUser.role)){
+    alert("Choose the seller role first.");
+    return;
+  }
+
+  const name=document.getElementById("pName").value.trim();
+  const price=Number(document.getElementById("pPrice").value);
+  const image=document.getElementById("pImage").value.trim();
+
+  if(!name||!Number.isFinite(price)||price<=0){
+    alert("Enter a valid product name and positive price.");
+    return;
+  }
+
+  if(image){
+    try{
+      const url=new URL(image);
+      if(url.protocol!=="https:"){
+        alert("Use a secure HTTPS image URL.");
+        return;
+      }
+    }catch(e){
+      alert("Enter a valid image URL.");
+      return;
+    }
+  }
+
+  db.products.push({
+    id:"p"+Date.now()+Math.random().toString(36).slice(2,7),
+    name,price,image,
+    type:document.getElementById("pType").value,
+    category:document.getElementById("pCategory").value,
+    description:document.getElementById("pDescription").value.trim(),
+    seller:currentUser.name,
+    owner:currentUser.id,
+    created:Date.now()
+  });
+
+  saveDB();
+  e.target.reset();
+  renderSeller();
+  renderProducts();
+  alert("Your demo listing has been published!");
+});
+
+function deleteListing(id){
+  if(!confirm("Delete this listing?"))return;
+  db.products=db.products.filter(p=>
+    !(p.id===id&&p.owner===currentUser?.id)
+  );
+  db.carts=db.carts.filter(c=>db.products.some(p=>p.id===c.productId));
+  saveDB();
+  renderSeller();
+  renderProducts();
+}
+
+renderCategories();
+renderProducts();
+renderCart();
+updateAccount();
+</script>
+</body>
+</html>
