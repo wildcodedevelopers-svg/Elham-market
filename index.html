@@ -5,650 +5,272 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#070b14">
 <title>ELHAM MARKET | ELHAM STUDIOS</title>
-
 <style>
 :root{--bg:#070b14;--panel:#101827;--panel2:#151f31;--blue:#3485ff;--cyan:#48d9ff;--text:#f4f7ff;--muted:#91a0b8;--border:#253249}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer;border:0;border-radius:9px;padding:11px 14px;color:white;background:var(--panel2)}
-button:hover{filter:brightness(1.15)}
-button:disabled{opacity:.55;cursor:wait}
-.primary{background:linear-gradient(120deg,#246bff,#17b8e8);font-weight:bold}
-.secondary{border:1px solid var(--border)}
-.danger{background:#702b36}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:9px;padding:11px 14px;color:white;background:var(--panel2)}
+button:disabled{opacity:.55;cursor:wait}.primary{background:linear-gradient(120deg,#246bff,#17b8e8);font-weight:bold}.danger{background:#702b36}
 header{position:sticky;top:0;z-index:5;background:#080e1bea;backdrop-filter:blur(15px);border-bottom:1px solid var(--border);padding:15px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.logo{font-size:21px;font-weight:900;letter-spacing:1px}.logo span{color:var(--cyan)}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-main{max-width:1200px;margin:auto;padding:25px 5% 70px}
-.hero{padding:35px 25px;border:1px solid #24466e;border-radius:20px;background:radial-gradient(ellipse at top right,#163e70,transparent 60%),linear-gradient(140deg,#101b30,#090e19)}
-.eyebrow{color:var(--cyan);font-weight:bold;font-size:12px;letter-spacing:2px}
-h1{font-size:clamp(30px,6vw,54px);margin:12px 0}
-p{line-height:1.6}.muted{color:var(--muted)}
-.searchrow{display:flex;gap:10px;margin:22px 0;flex-wrap:wrap}
-input,select,textarea{width:100%;background:#080f1c;border:1px solid var(--border);border-radius:9px;color:white;padding:13px;outline:none}
-input:focus,select:focus,textarea:focus{border-color:var(--blue)}
-.searchrow input{flex:1;min-width:180px}
-.categories{display:flex;gap:8px;overflow-x:auto;padding:5px 0 17px}
-.categories button{white-space:nowrap}.categories button.active{background:var(--blue)}
-.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:25px 0 15px}
-.sectionhead h2{margin:0}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
-.card{min-width:0;overflow:hidden;background:var(--panel);border:1px solid var(--border);border-radius:15px}
-.productimage{height:160px;background:#18253a;display:flex;justify-content:center;align-items:center;overflow:hidden;font-size:52px}
-.productimage img{width:100%;height:100%;object-fit:cover}
-.cardbody{padding:13px}.tag{display:inline-block;font-size:11px;color:var(--cyan);background:#142d48;padding:5px 8px;border-radius:6px}
-.price{font-size:21px;font-weight:bold;margin:10px 0}
-.card h3{font-size:16px;margin:10px 0;overflow-wrap:anywhere}
-.cardbody p{font-size:12px}.card button{width:100%;margin-top:7px}
-.panel{background:var(--panel);border:1px solid var(--border);padding:20px;border-radius:15px;margin:18px 0}
-.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}
-label{font-size:13px;color:#b6c4d9}
-.hidden{display:none!important}
-.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.stat{background:var(--panel2);padding:16px;border-radius:10px}
-.stat strong{font-size:24px;display:block;margin-bottom:7px}
-.listing{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--border)}
-.listing:last-child{border:0}.listing strong{overflow-wrap:anywhere}
-.modal{position:fixed;inset:0;z-index:10;background:#000b;display:flex;justify-content:center;align-items:center;padding:15px}
-.modalbox{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:23px;width:100%;max-width:440px;max-height:90vh;overflow:auto}
-.modalbox>*{margin-bottom:12px}
-.notice{font-size:12px;color:#a8b8cf}
-.empty{padding:30px 10px;text-align:center;color:var(--muted)}
-#imagePreview{width:100%;max-height:260px;object-fit:contain;border-radius:12px;background:#080f1c;margin-top:10px}
-footer{border-top:1px solid var(--border);padding:25px 5%;text-align:center;color:var(--muted);font-size:12px}
-.status{font-size:12px;color:var(--cyan);margin:10px 0;overflow-wrap:anywhere}
+.logo{font-size:21px;font-weight:900;letter-spacing:1px}.logo span{color:var(--cyan)}nav{display:flex;gap:8px;flex-wrap:wrap}
+main{max-width:1200px;margin:auto;padding:25px 5% 70px}.hero{padding:35px 25px;border:1px solid #24466e;border-radius:20px;background:radial-gradient(ellipse at top right,#163e70,transparent 60%),linear-gradient(140deg,#101b30,#090e19)}
+.eyebrow{color:var(--cyan);font-weight:bold;font-size:12px;letter-spacing:2px}h1{font-size:clamp(30px,6vw,54px);margin:12px 0}p{line-height:1.6}.muted{color:var(--muted)}
+.searchrow{display:flex;gap:10px;margin:22px 0;flex-wrap:wrap}input,select,textarea{width:100%;background:#080f1c;border:1px solid var(--border);border-radius:9px;color:white;padding:13px;outline:none}
+.searchrow input{flex:1;min-width:180px}.categories{display:flex;gap:8px;overflow-x:auto;padding:5px 0 17px}.categories button{white-space:nowrap}.categories button.active{background:var(--blue)}
+.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:25px 0 15px}.sectionhead h2{margin:0}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.card{min-width:0;overflow:hidden;background:var(--panel);border:1px solid var(--border);border-radius:15px}
+.productimage{height:160px;background:#18253a;display:flex;justify-content:center;align-items:center;overflow:hidden;font-size:52px}.productimage img{width:100%;height:100%;object-fit:cover}
+.cardbody{padding:13px}.tag{display:inline-block;font-size:11px;color:var(--cyan);background:#142d48;padding:5px 8px;border-radius:6px}.price{font-size:21px;font-weight:bold;margin:10px 0}
+.card h3{font-size:16px;margin:10px 0;overflow-wrap:anywhere}.cardbody p{font-size:12px}.card button{width:100%;margin-top:7px}
+.panel{background:var(--panel);border:1px solid var(--border);padding:20px;border-radius:15px;margin:18px 0}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:13px;color:#b6c4d9}.hidden{display:none!important}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:var(--panel2);padding:16px;border-radius:10px}.stat strong{font-size:24px;display:block;margin-bottom:7px}
+.listing{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--border)}.listing:last-child{border:0}.listing strong{overflow-wrap:anywhere}
+.modal{position:fixed;inset:0;z-index:10;background:#000b;display:flex;justify-content:center;align-items:center;padding:15px}.modalbox{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:23px;width:100%;max-width:440px;max-height:90vh;overflow:auto}
+.notice,.status{font-size:12px;color:#a8b8cf;overflow-wrap:anywhere}.empty{padding:30px 10px;text-align:center;color:var(--muted)}
+#imagePreview{width:100%;max-height:260px;object-fit:contain;border-radius:12px;background:#080f1c;margin-top:10px}footer{border-top:1px solid var(--border);padding:25px 5%;text-align:center;color:var(--muted);font-size:12px}
 @media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){header{padding:13px 4%}main{padding:18px 4% 50px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.productimage{height:125px}.cardbody{padding:10px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.statgrid{grid-template-columns:1fr}.hero{padding:25px 18px}nav button{padding:9px}}
 </style>
 </head>
-
 <body>
 <header>
-  <div class="logo">ELHAM <span>MARKET</span></div>
-  <nav>
-    <button onclick="showPage('shop')">Shop</button>
-    <button onclick="showPage('seller')">Sell</button>
-    <button onclick="showPage('cart')">Cart (<span id="cartCount">0</span>)</button>
-    <button class="primary" id="accountButton" onclick="openAuth()">Sign in</button>
-  </nav>
+<div class="logo">ELHAM <span>MARKET</span></div>
+<nav>
+<button onclick="showPage('shop')">Shop</button>
+<button onclick="showPage('seller')">Sell</button>
+<button onclick="showPage('cart')">Cart (<span id="cartCount">0</span>)</button>
+<button class="primary" id="accountButton" onclick="openAuth()">Sign in</button>
+</nav>
 </header>
 
 <main>
 <section id="shopPage">
-  <div class="hero">
-    <div class="eyebrow">POWERED BY ELHAM STUDIOS</div>
-    <h1>Discover. Create.<br>Trade without limits.</h1>
-    <p class="muted">One marketplace for physical products, handmade creations, digital goods and creative businesses.</p>
-    <button class="primary" onclick="showPage('seller')">Start selling →</button>
-    <button class="secondary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore products</button>
-  </div>
-  <div class="searchrow">
-    <input id="search" placeholder="Search products or sellers..." oninput="renderProducts()">
-    <select id="sort" onchange="renderProducts()" style="max-width:175px">
-      <option value="new">Newest first</option>
-      <option value="low">Price: low to high</option>
-      <option value="high">Price: high to low</option>
-    </select>
-  </div>
-  <div class="categories" id="categories"></div>
-  <div class="sectionhead" id="products">
-    <h2>Explore the marketplace</h2>
-    <span class="muted" id="productCount">Loading...</span>
-  </div>
-  <div class="grid" id="productGrid"></div>
+<div class="hero">
+<div class="eyebrow">POWERED BY ELHAM STUDIOS</div>
+<h1>Discover. Create.<br>Trade without limits.</h1>
+<p class="muted">One marketplace for physical products, handmade creations, digital goods and creative businesses.</p>
+<button class="primary" onclick="showPage('seller')">Start selling →</button>
+<button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore products</button>
+</div>
+<div class="searchrow">
+<input id="search" placeholder="Search products or sellers..." oninput="renderProducts()">
+<select id="sort" onchange="renderProducts()" style="max-width:175px">
+<option value="new">Newest first</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option>
+</select>
+</div>
+<div class="categories" id="categories"></div>
+<div class="sectionhead" id="products"><h2>Explore the marketplace</h2><span class="muted" id="productCount">Loading...</span></div>
+<div class="grid" id="productGrid"></div>
 </section>
 
 <section id="sellerPage" class="hidden">
-  <div class="sectionhead"><h2>Seller studio</h2><button onclick="showPage('shop')">← Back to shop</button></div>
-  <div id="sellerLocked" class="panel">
-    <h3>Start your own store</h3>
-    <p class="muted" id="sellerMessage">Sign in and choose Seller to create product listings.</p>
-    <button class="primary" id="sellerAuthButton" onclick="openAuth()">Sign in / Register</button>
-    <button class="secondary hidden" id="enableSellerButton" onclick="enableSeller()">Enable seller account</button>
-  </div>
-
-  <div id="sellerDashboard" class="hidden">
-    <div class="statgrid">
-      <div class="stat"><strong id="statListings">0</strong><span class="muted">Your listings</span></div>
-      <div class="stat"><strong id="statCart">0</strong><span class="muted">Items in this cart</span></div>
-      <div class="stat"><strong id="statValue">R0.00</strong><span class="muted">Total listing value</span></div>
-    </div>
-    <div class="panel">
-      <h3>List a product</h3>
-      <form id="productForm">
-        <div class="formgrid">
-          <div class="field full"><label>Product name</label><input id="pName" required maxlength="100" placeholder="e.g. Handmade leather wallet"></div>
-          <div class="field"><label>Price (ZAR)</label><input id="pPrice" type="number" min="0.01" step="0.01" required placeholder="199.99"></div>
-          <div class="field"><label>Product type</label>
-            <select id="pType"><option>Physical product</option><option>Handmade</option><option>Digital download</option><option>Digital service</option><option>Art & collectibles</option><option>Other</option></select>
-          </div>
-          <div class="field full"><label>Category</label>
-            <select id="pCategory"><option>Technology</option><option>Fashion</option><option>Home & Living</option><option>Art</option><option>Digital</option><option>Education</option><option>Beauty</option><option>Sports</option><option>Other</option></select>
-          </div>
-          <div class="field full">
-            <label>Upload product image from your phone</label>
-            <input id="pImageFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif" required>
-            <img id="imagePreview" class="hidden" alt="Product image preview">
-            <p class="notice">Choose a gallery photo. Images are compressed and uploaded to cloud storage. Maximum original size: 10 MB.</p>
-          </div>
-          <div class="field full"><label>Description</label><textarea id="pDescription" rows="3" maxlength="1000" required placeholder="Describe your product..."></textarea></div>
-        </div>
-        <p class="notice">Only sell products you own or have permission to sell.</p>
-        <button class="primary" id="publishButton" type="submit">Publish listing</button>
-        <p id="publishStatus" class="status"></p>
-      </form>
-    </div>
-    <div class="panel"><h3>Your products</h3><div id="myListings"></div></div>
-  </div>
+<div class="sectionhead"><h2>Seller studio</h2><button onclick="showPage('shop')">← Back to shop</button></div>
+<div id="sellerLocked" class="panel">
+<h3>Start your own store</h3><p class="muted" id="sellerMessage">Sign in to create listings.</p>
+<button class="primary" id="sellerAuthButton" onclick="openAuth()">Sign in / Register</button>
+<button class="hidden" id="enableSellerButton" onclick="enableSeller()">Enable seller account</button>
+</div>
+<div id="sellerDashboard" class="hidden">
+<div class="statgrid">
+<div class="stat"><strong id="statListings">0</strong><span class="muted">Your listings</span></div>
+<div class="stat"><strong id="statCart">0</strong><span class="muted">Items in this cart</span></div>
+<div class="stat"><strong id="statValue">R0.00</strong><span class="muted">Total listing value</span></div>
+</div>
+<div class="panel">
+<h3>List a product</h3>
+<form id="productForm">
+<div class="formgrid">
+<div class="field full"><label>Product name</label><input id="pName" required maxlength="100" placeholder="e.g. Handmade leather wallet"></div>
+<div class="field"><label>Price (ZAR)</label><input id="pPrice" type="number" min="0.01" step="0.01" required></div>
+<div class="field"><label>Product type</label><select id="pType"><option>Physical product</option><option>Handmade</option><option>Digital download</option><option>Digital service</option><option>Art & collectibles</option><option>Other</option></select></div>
+<div class="field full"><label>Category</label><select id="pCategory"><option>Technology</option><option>Fashion</option><option>Home & Living</option><option>Art</option><option>Digital</option><option>Education</option><option>Beauty</option><option>Sports</option><option>Other</option></select></div>
+<div class="field full"><label>Product image</label><input id="pImageFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif" required><img id="imagePreview" class="hidden" alt="Image preview"><p class="notice">Select a photo from your phone. Maximum original size: 10 MB.</p></div>
+<div class="field full"><label>Description</label><textarea id="pDescription" rows="3" maxlength="1000" required></textarea></div>
+</div>
+<p class="notice">Only sell products you own or have permission to sell.</p>
+<button class="primary" id="publishButton" type="submit">Publish listing</button><p id="publishStatus" class="status"></p>
+</form>
+</div>
+<div class="panel"><h3>Your products</h3><div id="myListings"></div></div>
+</div>
 </section>
 
 <section id="cartPage" class="hidden">
-  <div class="sectionhead"><h2>Your shopping cart</h2></div>
-  <div class="panel">
-    <div id="cartItems"></div>
-    <div class="sectionhead">
-      <strong>Total: <span id="cartTotal">R0.00</span></strong>
-      <button class="primary" onclick="checkout()">Continue to checkout</button>
-    </div>
-    <p class="notice">Demo cart only. Real orders and payments are not connected.</p>
-  </div>
+<div class="sectionhead"><h2>Your shopping cart</h2></div>
+<div class="panel"><div id="cartItems"></div>
+<div class="sectionhead"><strong>Total: <span id="cartTotal">R0.00</span></strong><button class="primary" onclick="checkout()">Continue to checkout</button></div>
+<p class="notice">Demo cart only. Real payments are not connected.</p>
+</div>
 </section>
 </main>
 
 <footer>ELHAM MARKET · A marketplace by ELHAM STUDIOS<br><br>Cloud accounts, listings and product images · Checkout is still a demo</footer>
 
-<div id="authModal" class="modal hidden">
-  <div class="modalbox">
-    <button style="float:right" onclick="closeAuth()">✕</button>
-    <h2 id="authTitle">Join ELHAM MARKET</h2>
-    <p class="muted" id="authSubtitle">Create your marketplace account.</p>
-    <div class="searchrow">
-      <button id="registerModeButton" class="primary" type="button" onclick="setAuthMode('register')">Register</button>
-      <button id="loginModeButton" type="button" onclick="setAuthMode('login')">Sign in</button>
-    </div>
-    <form id="authForm">
-      <div class="field" id="authNameField"><label>Your name</label><input id="authName" maxlength="60" placeholder="Your display name"></div>
-      <div class="field"><label>Email address</label><input id="authEmail" type="email" required maxlength="120" placeholder="you@example.com"></div>
-      <div class="field"><label>Password</label><input id="authPassword" type="password" required minlength="6" autocomplete="current-password" placeholder="At least 6 characters"></div>
-      <div class="field" id="authRoleField"><label>I want to...</label>
-        <select id="authRole"><option value="buyer">Buy products</option><option value="seller">Sell products</option><option value="both">Buy and sell</option></select>
-      </div>
-      <button class="primary" id="authSubmitButton" style="width:100%" type="submit">Create account</button>
-      <p id="authStatus" class="status"></p>
-    </form>
-    <p class="notice">Use a unique password. Account security is handled by Supabase.</p>
-  </div>
-</div>
+<div id="authModal" class="modal hidden"><div class="modalbox">
+<button style="float:right" onclick="closeAuth()">✕</button>
+<h2 id="authTitle">Join ELHAM MARKET</h2><p class="muted" id="authSubtitle">Create your account.</p>
+<div class="searchrow"><button id="registerModeButton" class="primary" type="button" onclick="setAuthMode('register')">Register</button><button id="loginModeButton" type="button" onclick="setAuthMode('login')">Sign in</button></div>
+<form id="authForm">
+<div class="field" id="authNameField"><label>Your name</label><input id="authName" maxlength="60" placeholder="Your display name"></div>
+<div class="field"><label>Email</label><input id="authEmail" type="email" required maxlength="120" placeholder="you@example.com"></div>
+<div class="field"><label>Password</label><input id="authPassword" type="password" required minlength="6" autocomplete="current-password" placeholder="At least 6 characters"></div>
+<div class="field" id="authRoleField"><label>I want to...</label><select id="authRole"><option value="buyer">Buy products</option><option value="seller">Sell products</option><option value="both">Buy and sell</option></select></div>
+<button class="primary" id="authSubmitButton" style="width:100%" type="submit">Create account</button><p id="authStatus" class="status"></p>
+</form>
+<p class="notice">Supabase securely manages account passwords.</p>
+</div></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-/* ===== ELHAM MARKET CONFIGURATION ===== */
 const SUPABASE_URL = "https://xrnbpypqcksefbdjudvo.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
-/* ===================================== */
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_pDbFHsGEiAJ05Jlt3fVEzQ_gb1CXI32";
+const client = window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+const CART_KEY="elham_market_cart_v3";
+const categories=["All","Technology","Fashion","Home & Living","Art","Digital","Education","Beauty","Sports","Other"];
+let currentUser=null,profile=null,products=[],activeCategory="All",selectedImage=null,busy=false,authMode="register";
+let cart=loadCart();
 
-const CART_KEY = "elham_market_cart_v3";
-const categories = ["All","Technology","Fashion","Home & Living","Art","Digital","Education","Beauty","Sports","Other"];
+function loadCart(){try{const x=JSON.parse(localStorage.getItem(CART_KEY)||"[]");return Array.isArray(x)?x:[]}catch{return[]}}
+function saveCart(){localStorage.setItem(CART_KEY,JSON.stringify(cart))}
+function money(n){return "R"+Number(n||0).toLocaleString("en-ZA",{minimumFractionDigits:2,maximumFractionDigits:2})}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function showPage(page){["shop","seller","cart"].forEach(p=>document.getElementById(p+"Page").classList.toggle("hidden",p!==page));if(page==="seller")renderSeller();if(page==="cart")renderCart();window.scrollTo({top:0,behavior:"smooth"})}
+function openAuth(){setAuthMode("register");document.getElementById("authModal").classList.remove("hidden")}
+function closeAuth(){document.getElementById("authModal").classList.add("hidden")}
+function setAuthMode(mode){authMode=mode;let r=mode==="register";document.getElementById("authTitle").textContent=r?"Join ELHAM MARKET":"Welcome back";document.getElementById("authSubtitle").textContent=r?"Create your marketplace account.":"Sign in to your account.";document.getElementById("authNameField").classList.toggle("hidden",!r);document.getElementById("authRoleField").classList.toggle("hidden",!r);document.getElementById("authName").required=r;document.getElementById("authSubmitButton").textContent=r?"Create account":"Sign in";document.getElementById("registerModeButton").classList.toggle("primary",r);document.getElementById("loginModeButton").classList.toggle("primary",!r);document.getElementById("authStatus").textContent=""}
 
-if (!window.supabase) {
-  alert("The Supabase library could not load. Check your internet connection and reload.");
+async function loadProfile(){
+profile=null;if(!currentUser)return;
+const {data,error}=await client.from("profiles").select("id,display_name,role").eq("id",currentUser.id).maybeSingle();
+if(error)throw error;if(data){profile=data;return}
+const meta=currentUser.user_metadata||{};
+const name=String(meta.display_name||currentUser.email?.split("@")[0]||"Marketplace user").slice(0,60);
+const role=["buyer","seller","both"].includes(meta.role)?meta.role:"buyer";
+const result=await client.from("profiles").insert({id:currentUser.id,display_name:name,role}).select("id,display_name,role").single();
+if(result.error)throw result.error;profile=result.data;
 }
-if (SUPABASE_PUBLISHABLE_KEY.includes("PASTE_YOUR")) {
-  alert("Setup needed: paste your Supabase publishable key into index.html, then save and reload.");
-}
+function updateAccount(){const b=document.getElementById("accountButton");if(currentUser){b.textContent=(profile?.display_name||currentUser.email||"Account")+" · Sign out";b.onclick=signOut}else{b.textContent="Sign in";b.onclick=openAuth}}
+async function signOut(){const {error}=await client.auth.signOut();if(error)return alert(error.message);currentUser=null;profile=null;products=[];renderProducts();updateAccount();renderSeller();showPage("shop")}
+async function refreshApp(){try{await loadProfile()}catch(e){console.error(e);alert("Profile error: "+e.message)}updateAccount();await loadProducts();renderSeller();renderCart()}
 
-const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
-
-let currentUser = null;
-let activeCategory = "All";
-let products = [];
-let cart = loadCart();
-let selectedImage = null;
-let authMode = "register";
-let profile = null;
-let busy = false;
-
-function loadCart() {
-  try {
-    const value = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
-    return Array.isArray(value) ? value : [];
-  } catch { return []; }
+document.getElementById("authForm").addEventListener("submit",async e=>{
+e.preventDefault();if(busy)return;busy=true;
+const btn=document.getElementById("authSubmitButton"),status=document.getElementById("authStatus");
+btn.disabled=true;status.textContent="Please wait...";
+const email=document.getElementById("authEmail").value.trim().toLowerCase(),password=document.getElementById("authPassword").value;
+try{
+if(authMode==="register"){
+const name=document.getElementById("authName").value.trim(),role=document.getElementById("authRole").value;
+const {data,error}=await client.auth.signUp({email,password,options:{data:{display_name:name,role}}});
+if(error)throw error;
+if(data.session){currentUser=data.user;await refreshApp();closeAuth();showPage(role==="buyer"?"shop":"seller");alert("Account created!")}
+else status.textContent="Account created. Check your email to confirm it, then sign in.";
+}else{
+const {data,error}=await client.auth.signInWithPassword({email,password});if(error)throw error;
+currentUser=data.user;await refreshApp();closeAuth();showPage(["seller","both"].includes(profile?.role)?"seller":"shop");alert("Signed in successfully!");
 }
-function saveCart() {
-  localStorage.setItem(CART_KEY, JSON.stringify(cart));
-}
-function money(n) {
-  return "R" + Number(n || 0).toLocaleString("en-ZA", {minimumFractionDigits:2,maximumFractionDigits:2});
-}
-function escapeHTML(v) {
-  return String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-}
-function showPage(page) {
-  ["shop","seller","cart"].forEach(p => document.getElementById(p+"Page").classList.toggle("hidden",p!==page));
-  if (page === "seller") renderSeller();
-  if (page === "cart") renderCart();
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-function openAuth() {
-  setAuthMode("register");
-  document.getElementById("authModal").classList.remove("hidden");
-}
-function closeAuth() {
-  document.getElementById("authModal").classList.add("hidden");
-}
-function setAuthMode(mode) {
-  authMode = mode;
-  const registering = mode === "register";
-  document.getElementById("authTitle").textContent = registering ? "Join ELHAM MARKET" : "Welcome back";
-  document.getElementById("authSubtitle").textContent = registering ? "Create your marketplace account." : "Sign in to your marketplace account.";
-  document.getElementById("authNameField").classList.toggle("hidden",!registering);
-  document.getElementById("authRoleField").classList.toggle("hidden",!registering);
-  document.getElementById("authName").required = registering;
-  document.getElementById("authSubmitButton").textContent = registering ? "Create account" : "Sign in";
-  document.getElementById("registerModeButton").classList.toggle("primary",registering);
-  document.getElementById("loginModeButton").classList.toggle("primary",!registering);
-  document.getElementById("authStatus").textContent = "";
-}
-
-async function loadProfile() {
-  profile = null;
-  if (!currentUser) return;
-  const {data, error} = await client.from("profiles").select("id,display_name,role").eq("id",currentUser.id).maybeSingle();
-  if (error) throw error;
-
-  if (data) {
-    profile = data;
-    return;
-  }
-
-  const metadata = currentUser.user_metadata || {};
-  const name = String(metadata.display_name || currentUser.email?.split("@")[0] || "Marketplace user").slice(0,60);
-  const role = ["buyer","seller","both"].includes(metadata.role) ? metadata.role : "buyer";
-  const {data:created,error:createError} = await client.from("profiles")
-    .insert({id:currentUser.id,display_name:name,role})
-    .select("id,display_name,role").single();
-  if (createError) throw createError;
-  profile = created;
-}
-
-function updateAccount() {
-  const b = document.getElementById("accountButton");
-  if (currentUser) {
-    const name = profile?.display_name || currentUser.email || "Account";
-    b.textContent = name + " · Sign out";
-    b.onclick = signOut;
-  } else {
-    b.textContent = "Sign in";
-    b.onclick = openAuth;
-  }
-}
-async function signOut() {
-  const {error} = await client.auth.signOut();
-  if (error) return alert(error.message);
-  currentUser = null;
-  profile = null;
-  products = [];
-  renderProducts();
-  updateAccount();
-  renderSeller();
-  showPage("shop");
-}
-
-async function refreshApp() {
-  try {
-    await loadProfile();
-  } catch (e) {
-    console.error(e);
-    alert("Could not load your profile: " + e.message);
-  }
-  updateAccount();
-  await loadProducts();
-  renderSeller();
-  renderCart();
-}
-
-document.getElementById("authForm").addEventListener("submit", async e => {
-  e.preventDefault();
-  if (busy) return;
-  busy = true;
-  const submit = document.getElementById("authSubmitButton");
-  const status = document.getElementById("authStatus");
-  submit.disabled = true;
-  status.textContent = authMode === "register" ? "Creating your account..." : "Signing in...";
-
-  const email = document.getElementById("authEmail").value.trim().toLowerCase();
-  const password = document.getElementById("authPassword").value;
-
-  try {
-    if (authMode === "register") {
-      const name = document.getElementById("authName").value.trim();
-      const role = document.getElementById("authRole").value;
-      const {data,error} = await client.auth.signUp({
-        email,password,
-        options:{data:{display_name:name,role}}
-      });
-      if (error) throw error;
-
-      if (data.session) {
-        currentUser = data.user;
-        await loadProfile();
-        closeAuth();
-        await refreshApp();
-        showPage(role === "buyer" ? "shop" : "seller");
-        alert("Account created successfully!");
-      } else {
-        status.textContent = "Account created. Check your email to confirm it, then return here and sign in.";
-      }
-    } else {
-      const {data,error} = await client.auth.signInWithPassword({email,password});
-      if (error) throw error;
-      currentUser = data.user;
-      await refreshApp();
-      closeAuth();
-      showPage(["seller","both"].includes(profile?.role) ? "seller" : "shop");
-      alert("Signed in successfully!");
-    }
-  } catch (err) {
-    status.textContent = err.message || "Something went wrong.";
-  } finally {
-    busy = false;
-    submit.disabled = false;
-  }
+}catch(err){status.textContent=err.message||"Something went wrong."}
+finally{busy=false;btn.disabled=false}
 });
 
-async function enableSeller() {
-  if (!currentUser) return openAuth();
-  const {data,error} = await client.from("profiles")
-    .update({role:"both"}).eq("id",currentUser.id)
-    .select("id,display_name,role").single();
-  if (error) return alert("Could not enable seller mode: " + error.message);
-  profile = data;
-  updateAccount();
-  renderSeller();
-  alert("Seller mode enabled. You can now publish products.");
+async function enableSeller(){
+if(!currentUser)return openAuth();
+const {data,error}=await client.from("profiles").update({role:"both"}).eq("id",currentUser.id).select("id,display_name,role").single();
+if(error)return alert("Could not enable seller mode: "+error.message);
+profile=data;updateAccount();renderSeller();alert("Seller mode enabled!");
 }
+async function loadProducts(){
+document.getElementById("productCount").textContent="Loading...";
+const {data,error}=await client.from("products").select("id,seller_id,seller_name,name,description,price,product_type,category,image_url,created_at").order("created_at",{ascending:false});
+if(error){document.getElementById("productGrid").innerHTML='<div class="empty">Could not load products: '+esc(error.message)+'</div>';document.getElementById("productCount").textContent="Unavailable";return}
+products=(data||[]).map(p=>({id:p.id,owner:p.seller_id,seller:p.seller_name||"Marketplace Seller",name:p.name,description:p.description,price:Number(p.price),type:p.product_type,category:p.category,image:p.image_url,created:new Date(p.created_at).getTime()}));
+renderProducts();renderSeller();renderCart();
+}
+function renderCategories(){document.getElementById("categories").innerHTML=categories.map(c=>`<button class="${activeCategory===c?"active":""}" onclick="setCategory('${c}')">${c}</button>`).join("")}
+function setCategory(c){activeCategory=c;renderCategories();renderProducts()}
+function renderProducts(){
+const q=(document.getElementById("search")?.value||"").toLowerCase().trim();
+let list=products.filter(p=>(activeCategory==="All"||p.category===activeCategory)&&(p.name+" "+p.description+" "+p.category+" "+p.seller).toLowerCase().includes(q));
+const sort=document.getElementById("sort")?.value||"new";
+if(sort==="low")list.sort((a,b)=>a.price-b.price);else if(sort==="high")list.sort((a,b)=>b.price-a.price);else list.sort((a,b)=>b.created-a.created);
+document.getElementById("productCount").textContent=list.length+" products";
+document.getElementById("productGrid").innerHTML=list.length?list.map(p=>`<article class="card"><div class="productimage">${p.image?`<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy">`:"<span>🛍️</span>"}</div><div class="cardbody"><span class="tag">${esc(p.type)}</span><h3>${esc(p.name)}</h3><div class="price">${money(p.price)}</div><p class="muted">${esc(p.category)} · ${esc(p.seller)}</p><p>${esc(p.description)}</p><button class="primary" onclick="addToCart('${p.id}')">Add to cart</button></div></article>`).join(""):'<div class="empty">No products yet. Be the first to publish one!</div>';
+updateCartCount();
+}
+function addToCart(id){const p=products.find(x=>x.id===id);if(!p)return;if(currentUser&&p.owner===currentUser.id)return alert("You cannot buy your own listing.");const item=cart.find(x=>x.productId===id);if(item)item.quantity++;else cart.push({productId:id,quantity:1});saveCart();updateCartCount();alert("Added to your cart!")}
+function updateCartCount(){document.getElementById("cartCount").textContent=cart.reduce((s,c)=>s+c.quantity,0)}
+function renderCart(){
+const items=cart.map(c=>{const p=products.find(x=>x.id===c.productId);return p?{...p,quantity:c.quantity}:null}).filter(Boolean);
+document.getElementById("cartItems").innerHTML=items.length?items.map(p=>`<div class="listing"><div><strong>${esc(p.name)}</strong><p class="muted">${money(p.price)} × ${p.quantity}</p></div><div><button onclick="changeQuantity('${p.id}',-1)">−</button> <button onclick="changeQuantity('${p.id}',1)">+</button> <button class="danger" onclick="removeCartItem('${p.id}')">✕</button></div></div>`).join(""):'<div class="empty">Your cart is empty.</div>';
+document.getElementById("cartTotal").textContent=money(items.reduce((s,p)=>s+p.price*p.quantity,0));
+}
+function changeQuantity(id,n){const x=cart.find(c=>c.productId===id);if(!x)return;x.quantity+=n;if(x.quantity<=0)removeCartItem(id);else{saveCart();renderCart();updateCartCount()}}
+function removeCartItem(id){cart=cart.filter(c=>c.productId!==id);saveCart();renderCart();updateCartCount()}
+function checkout(){if(!currentUser){alert("Sign in to continue.");openAuth();return}alert("Checkout is a demo. Online payments are not connected yet.")}
 
-async function loadProducts() {
-  document.getElementById("productCount").textContent = "Loading...";
-  const {data,error} = await client.from("products")
-    .select("id,seller_id,seller_name,name,description,price,product_type,category,image_url,created_at")
-    .order("created_at",{ascending:false});
-  if (error) {
-    document.getElementById("productGrid").innerHTML = '<div class="empty">Could not load products. ' + escapeHTML(error.message) + '</div>';
-    document.getElementById("productCount").textContent = "Unavailable";
-    return;
-  }
-  products = (data || []).map(p => ({
-    id:p.id, owner:p.seller_id, seller:p.seller_name || "Marketplace Seller",
-    name:p.name, description:p.description, price:Number(p.price),
-    type:p.product_type, category:p.category, image:p.image_url,
-    created:new Date(p.created_at).getTime()
-  }));
-  renderProducts();
-  renderSeller();
-  renderCart();
+function renderSeller(){
+const allowed=!!(currentUser&&profile&&["seller","both"].includes(profile.role));
+document.getElementById("sellerLocked").classList.toggle("hidden",allowed);
+document.getElementById("sellerDashboard").classList.toggle("hidden",!allowed);
+document.getElementById("sellerAuthButton").classList.toggle("hidden",!!currentUser);
+document.getElementById("enableSellerButton").classList.toggle("hidden",!currentUser||allowed);
+document.getElementById("sellerMessage").textContent=currentUser?"Your account is set to buyer. Enable seller mode to publish listings.":"Sign in or register to create your store.";
+if(!allowed)return;
+const mine=products.filter(p=>p.owner===currentUser.id);
+document.getElementById("statListings").textContent=mine.length;
+document.getElementById("statCart").textContent=cart.reduce((s,c)=>s+c.quantity,0);
+document.getElementById("statValue").textContent=money(mine.reduce((s,p)=>s+p.price,0));
+document.getElementById("myListings").innerHTML=mine.length?mine.map(p=>`<div class="listing"><div><strong>${esc(p.name)}</strong><p class="muted">${money(p.price)} · ${esc(p.category)}</p></div><button class="danger" onclick="deleteListing('${p.id}')">Delete</button></div>`).join(""):'<p class="muted">You have no listings yet.</p>';
 }
-
-function renderCategories() {
-  document.getElementById("categories").innerHTML = categories.map(c =>
-    `<button class="${activeCategory===c?"active":""}" onclick="setCategory('${c}')">${c}</button>`
-  ).join("");
-}
-function setCategory(c) {
-  activeCategory = c;
-  renderCategories();
-  renderProducts();
-}
-function renderProducts() {
-  const q = (document.getElementById("search")?.value || "").toLowerCase().trim();
-  let list = products.filter(p =>
-    (activeCategory === "All" || p.category === activeCategory) &&
-    (p.name+" "+p.description+" "+p.category+" "+p.seller).toLowerCase().includes(q)
-  );
-  const sort = document.getElementById("sort")?.value || "new";
-  if (sort === "low") list.sort((a,b)=>a.price-b.price);
-  else if (sort === "high") list.sort((a,b)=>b.price-a.price);
-  else list.sort((a,b)=>b.created-a.created);
-
-  document.getElementById("productCount").textContent = list.length + " products";
-  document.getElementById("productGrid").innerHTML = list.length ? list.map(p => {
-    const visual = p.image
-      ? `<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}" loading="lazy">`
-      : "<span>🛍️</span>";
-    return `<article class="card">
-      <div class="productimage">${visual}</div>
-      <div class="cardbody">
-        <span class="tag">${escapeHTML(p.type)}</span>
-        <h3>${escapeHTML(p.name)}</h3>
-        <div class="price">${money(p.price)}</div>
-        <p class="muted">${escapeHTML(p.category)} · ${escapeHTML(p.seller)}</p>
-        <p>${escapeHTML(p.description)}</p>
-        <button class="primary" onclick="addToCart('${p.id}')">Add to cart</button>
-      </div>
-    </article>`;
-  }).join("") : '<div class="empty">No products yet. Be the first to publish a listing!</div>';
-  updateCartCount();
-}
-
-function addToCart(id) {
-  const p = products.find(p=>p.id===id);
-  if (!p) return;
-  if (currentUser && p.owner === currentUser.id) return alert("You cannot buy your own listing.");
-  const item = cart.find(c=>c.productId===id);
-  if (item) item.quantity++;
-  else cart.push({productId:id,quantity:1});
-  saveCart();
-  updateCartCount();
-  alert("Added to your cart!");
-}
-function updateCartCount() {
-  document.getElementById("cartCount").textContent = cart.reduce((s,c)=>s+c.quantity,0);
-}
-function renderCart() {
-  const items = cart.map(c => {
-    const p = products.find(p=>p.id===c.productId);
-    return p ? {...p,quantity:c.quantity} : null;
-  }).filter(Boolean);
-  document.getElementById("cartItems").innerHTML = items.length ? items.map(p =>
-    `<div class="listing"><div><strong>${escapeHTML(p.name)}</strong><p class="muted">${money(p.price)} × ${p.quantity}</p></div>
-    <div><button onclick="changeQuantity('${p.id}',-1)">−</button> <button onclick="changeQuantity('${p.id}',1)">+</button> <button class="danger" onclick="removeCartItem('${p.id}')">✕</button></div></div>`
-  ).join("") : '<div class="empty">Your cart is empty.</div>';
-  document.getElementById("cartTotal").textContent = money(items.reduce((s,p)=>s+p.price*p.quantity,0));
-}
-function changeQuantity(id,amount) {
-  const item = cart.find(c=>c.productId===id);
-  if (!item) return;
-  item.quantity += amount;
-  if (item.quantity <= 0) removeCartItem(id);
-  else {saveCart();renderCart();updateCartCount();}
-}
-function removeCartItem(id) {
-  cart = cart.filter(c=>c.productId!==id);
-  saveCart();renderCart();updateCartCount();
-}
-function checkout() {
-  if (!currentUser) {alert("Sign in to continue.");openAuth();return;}
-  alert("Checkout is still a demo. Online orders and payments have not been connected yet.");
-}
-
-function renderSeller() {
-  const allowed = currentUser && profile && ["seller","both"].includes(profile.role);
-  document.getElementById("sellerLocked").classList.toggle("hidden",!!allowed);
-  document.getElementById("sellerDashboard").classList.toggle("hidden",!allowed);
-  document.getElementById("sellerAuthButton").classList.toggle("hidden",!!currentUser);
-  document.getElementById("enableSellerButton").classList.toggle("hidden",!currentUser || allowed);
-  document.getElementById("sellerMessage").textContent = currentUser
-    ? "Your account is currently set to buyer. Enable seller mode to publish listings."
-    : "Sign in or register to create your own store.";
-  if (!allowed) return;
-
-  const mine = products.filter(p=>p.owner===currentUser.id);
-  document.getElementById("statListings").textContent = mine.length;
-  document.getElementById("statCart").textContent = cart.reduce((s,c)=>s+c.quantity,0);
-  document.getElementById("statValue").textContent = money(mine.reduce((s,p)=>s+p.price,0));
-  document.getElementById("myListings").innerHTML = mine.length ? mine.map(p =>
-    `<div class="listing"><div><strong>${escapeHTML(p.name)}</strong><p class="muted">${money(p.price)} · ${escapeHTML(p.category)}</p></div><button class="danger" onclick="deleteListing('${p.id}')">Delete</button></div>`
-  ).join("") : '<p class="muted">You have not listed any products yet.</p>';
-}
-
-function compressProductImage(file) {
-  return new Promise((resolve,reject) => {
-    const reader = new FileReader();
-    reader.onerror = () => reject(new Error("Could not read image."));
-    reader.onload = () => {
-      const img = new Image();
-      img.onerror = () => reject(new Error("Invalid image."));
-      img.onload = () => {
-        const max = 1200;
-        const scale = Math.min(1,max/Math.max(img.width,img.height));
-        const canvas = document.createElement("canvas");
-        canvas.width = Math.max(1,Math.round(img.width*scale));
-        canvas.height = Math.max(1,Math.round(img.height*scale));
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return reject(new Error("Image processing is unavailable."));
-        ctx.drawImage(img,0,0,canvas.width,canvas.height);
-        canvas.toBlob(blob => {
-          if (!blob) return reject(new Error("Could not compress image."));
-          resolve(blob);
-        },"image/jpeg",0.78);
-      };
-      img.src = reader.result;
-    };
-    reader.readAsDataURL(file);
-  });
-}
-
-document.getElementById("pImageFile").addEventListener("change",async e => {
-  const file = e.target.files[0];
-  const preview = document.getElementById("imagePreview");
-  selectedImage = null;
-  preview.removeAttribute("src");
-  preview.classList.add("hidden");
-  if (!file) return;
-  if (!file.type.startsWith("image/")) {
-    alert("Choose a valid image.");e.target.value="";return;
-  }
-  if (file.size > 10*1024*1024) {
-    alert("Image must be smaller than 10 MB.");e.target.value="";return;
-  }
-  try {
-    selectedImage = await compressProductImage(file);
-    preview.src = URL.createObjectURL(selectedImage);
-    preview.classList.remove("hidden");
-  } catch(err) {
-    alert(err.message || "Could not process that photo.");
-    e.target.value = "";
-    selectedImage = null;
-  }
+function compressImage(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onerror=()=>reject(Error("Could not read image."));r.onload=()=>{const img=new Image();img.onerror=()=>reject(Error("Invalid image."));img.onload=()=>{const scale=Math.min(1,1200/Math.max(img.width,img.height)),canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));const ctx=canvas.getContext("2d");if(!ctx)return reject(Error("Image processing unavailable."));ctx.drawImage(img,0,0,canvas.width,canvas.height);canvas.toBlob(blob=>blob?resolve(blob):reject(Error("Compression failed.")),"image/jpeg",.78)};img.src=r.result};r.readAsDataURL(file)})}
+document.getElementById("pImageFile").addEventListener("change",async e=>{
+const file=e.target.files[0],preview=document.getElementById("imagePreview");selectedImage=null;preview.removeAttribute("src");preview.classList.add("hidden");if(!file)return;
+if(!file.type.startsWith("image/")){alert("Choose a valid image.");e.target.value="";return}
+if(file.size>10*1024*1024){alert("Image must be smaller than 10 MB.");e.target.value="";return}
+try{selectedImage=await compressImage(file);preview.src=URL.createObjectURL(selectedImage);preview.classList.remove("hidden")}catch(err){alert(err.message);e.target.value=""}
 });
 
-document.getElementById("productForm").addEventListener("submit",async e => {
-  e.preventDefault();
-  if (busy) return;
-  if (!currentUser) {alert("Please sign in first.");openAuth();return;}
-  if (!profile || !["seller","both"].includes(profile.role)) {
-    alert("Enable seller mode before publishing.");return;
-  }
-  if (!selectedImage) {alert("Choose a product image first.");return;}
-
-  const name = document.getElementById("pName").value.trim();
-  const price = Number(document.getElementById("pPrice").value);
-  const description = document.getElementById("pDescription").value.trim();
-  if (!name || !Number.isFinite(price) || price<=0 || !description) {
-    alert("Enter a valid product name, price and description.");return;
-  }
-
-  const button = document.getElementById("publishButton");
-  const status = document.getElementById("publishStatus");
-  busy = true;
-  button.disabled = true;
-  status.textContent = "Uploading your image...";
-
-  let imagePath = null;
-  try {
-    const extension = "jpg";
-    imagePath = currentUser.id + "/" + crypto.randomUUID() + "." + extension;
-    const {error:uploadError} = await client.storage.from("product-images")
-      .upload(imagePath,selectedImage,{contentType:"image/jpeg",upsert:false});
-    if (uploadError) throw uploadError;
-
-    const {data:urlData} = client.storage.from("product-images").getPublicUrl(imagePath);
-    status.textContent = "Saving your listing...";
-
-    const product = {
-      seller_id:currentUser.id,
-      seller_name:profile.display_name || currentUser.email || "Marketplace Seller",
-      name,
-      description,
-      price,
-      product_type:document.getElementById("pType").value,
-      category:document.getElementById("pCategory").value,
-      image_url:urlData.publicUrl
-    };
-
-    const {error:insertError} = await client.from("products").insert(product);
-    if (insertError) throw insertError;
-
-    e.target.reset();
-    selectedImage = null;
-    document.getElementById("imagePreview").removeAttribute("src");
-    document.getElementById("imagePreview").classList.add("hidden");
-    status.textContent = "Published successfully!";
-    await loadProducts();
-    alert("Your product is live on ELHAM MARKET!");
-  } catch(err) {
-    console.error(err);
-    status.textContent = "Could not publish: " + (err.message || "Unknown error");
-    if (imagePath) {
-      await client.storage.from("product-images").remove([imagePath]);
-    }
-    alert("Publishing failed: " + (err.message || "Check your connection and Supabase setup."));
-  } finally {
-    busy = false;
-    button.disabled = false;
-  }
+document.getElementById("productForm").addEventListener("submit",async e=>{
+e.preventDefault();if(busy)return;
+if(!currentUser){alert("Sign in first.");openAuth();return}
+if(!profile||!["seller","both"].includes(profile.role)){alert("Enable seller mode first.");return}
+if(!selectedImage){alert("Choose a product image.");return}
+const name=document.getElementById("pName").value.trim(),price=Number(document.getElementById("pPrice").value),description=document.getElementById("pDescription").value.trim();
+if(!name||!Number.isFinite(price)||price<=0||!description){alert("Enter a valid name, price and description.");return}
+const button=document.getElementById("publishButton"),status=document.getElementById("publishStatus");busy=true;button.disabled=true;status.textContent="Uploading image...";
+let path=null;
+try{
+path=currentUser.id+"/"+crypto.randomUUID()+".jpg";
+const upload=await client.storage.from("product-images").upload(path,selectedImage,{contentType:"image/jpeg",upsert:false});
+if(upload.error)throw upload.error;
+const {data:urlData}=client.storage.from("product-images").getPublicUrl(path);
+status.textContent="Saving listing...";
+const {error}=await client.from("products").insert({seller_id:currentUser.id,seller_name:profile.display_name||"Marketplace Seller",name,description,price,product_type:document.getElementById("pType").value,category:document.getElementById("pCategory").value,image_url:urlData.publicUrl});
+if(error)throw error;
+e.target.reset();selectedImage=null;document.getElementById("imagePreview").removeAttribute("src");document.getElementById("imagePreview").classList.add("hidden");
+status.textContent="Published successfully!";await loadProducts();alert("Your product is live on ELHAM MARKET!");
+}catch(err){console.error(err);status.textContent="Publishing failed: "+err.message;if(path)await client.storage.from("product-images").remove([path]);alert("Could not publish: "+err.message)}
+finally{busy=false;button.disabled=false}
 });
 
-async function deleteListing(id) {
-  const p = products.find(p=>p.id===id && p.owner===currentUser?.id);
-  if (!p || !confirm("Delete this listing?")) return;
-  const {error} = await client.from("products").delete().eq("id",id).eq("seller_id",currentUser.id);
-  if (error) return alert("Could not delete listing: " + error.message);
-
-  const marker = "/product-images/";
-  const index = p.image.indexOf(marker);
-  if (index !== -1) {
-    const path = decodeURIComponent(p.image.slice(index+marker.length).split("?")[0]);
-    await client.storage.from("product-images").remove([path]);
-  }
-  cart = cart.filter(c=>c.productId!==id);
-  saveCart();
-  await loadProducts();
-  renderSeller();
+async function deleteListing(id){
+const p=products.find(x=>x.id===id&&x.owner===currentUser?.id);if(!p||!confirm("Delete this listing?"))return;
+const {error}=await client.from("products").delete().eq("id",id).eq("seller_id",currentUser.id);
+if(error)return alert("Could not delete: "+error.message);
+const marker="/product-images/",i=p.image.indexOf(marker);
+if(i!==-1){const path=decodeURIComponent(p.image.slice(i+marker.length).split("?")[0]);await client.storage.from("product-images").remove([path])}
+cart=cart.filter(c=>c.productId!==id);saveCart();await loadProducts();renderSeller();
 }
 
-async function init() {
-  renderCategories();
-  updateCartCount();
-  document.getElementById("productGrid").innerHTML = '<div class="empty">Connecting to ELHAM MARKET...</div>';
-  const {data,error} = await client.auth.getSession();
-  if (error) {
-    document.getElementById("productGrid").innerHTML = '<div class="empty">Could not connect to your account service.</div>';
-    return;
-  }
-  currentUser = data.session?.user || null;
-  await refreshApp();
-
-  client.auth.onAuthStateChange((_event,session) => {
-    currentUser = session?.user || null;
-    setTimeout(async () => {
-      await refreshApp();
-    },0);
-  });
+async function init(){
+renderCategories();updateCartCount();
+document.getElementById("productGrid").innerHTML='<div class="empty">Connecting to ELHAM MARKET...</div>';
+const {data,error}=await client.auth.getSession();
+if(error){document.getElementById("productGrid").innerHTML='<div class="empty">Could not connect: '+esc(error.message)+'</div>';return}
+currentUser=data.session?.user||null;
+await refreshApp();
+client.auth.onAuthStateChange((_event,session)=>{currentUser=session?.user||null;setTimeout(()=>refreshApp(),0)});
 }
-
 init();
 </script>
 </body>
