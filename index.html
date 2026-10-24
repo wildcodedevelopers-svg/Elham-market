@@ -185,7 +185,7 @@ footer{border-top:1px solid var(--border);padding:25px 5%;text-align:center;colo
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 /* ===== ELHAM MARKET CONFIGURATION ===== */
-const SUPABASE_URL = "https://xrnbpypqcksefbdjudvo.supabase.co";
+const SUPABASE_URL = "https://jkmtmupkhtjtkxxplnuc.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_pDbFHsGEiAJ05Jlt3fVEzQ_gb1CXI32";
 /* ===================================== */
 
@@ -632,23 +632,36 @@ async function init() {
   renderCategories();
   updateCartCount();
   document.getElementById("productGrid").innerHTML = '<div class="empty">Connecting to ELHAM MARKET...</div>';
-  const {data,error} = await client.auth.getSession();
-  if (error) {
-    document.getElementById("productGrid").innerHTML = '<div class="empty">Could not connect to your account service.</div>';
+
+  if (!window.supabase) {
+    document.getElementById("productGrid").innerHTML =
+      '<div class="empty">Supabase library failed to load. Check your internet connection and reload.</div>';
+    document.getElementById("productCount").textContent = "Unavailable";
     return;
   }
-  currentUser = data.session?.user || null;
-  await refreshApp();
 
-  client.auth.onAuthStateChange((_event,session) => {
-    currentUser = session?.user || null;
-    setTimeout(async () => {
-      await refreshApp();
-    },0);
-  });
+  try {
+    const {data,error} = await client.auth.getSession();
+    if (error) throw error;
+
+    currentUser = data.session?.user || null;
+    await refreshApp();
+
+    client.auth.onAuthStateChange((_event,session) => {
+      currentUser = session?.user || null;
+      setTimeout(async () => {
+        await refreshApp();
+      },0);
+    });
+  } catch (error) {
+    console.error("ELHAM MARKET connection error:",error);
+    document.getElementById("productGrid").innerHTML =
+      '<div class="empty">Could not connect to Supabase: ' + escapeHTML(error.message || "Check your project URL and publishable key.") + '</div>';
+    document.getElementById("productCount").textContent = "Unavailable";
+  }
 }
 
 init();
 </script>
 </body>
-  </html>
+</html>
